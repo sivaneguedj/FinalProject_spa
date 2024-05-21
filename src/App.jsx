@@ -1,17 +1,25 @@
-import React from 'react'
-import { Route, Switch } from "react-router-dom"
-import Homepage from './Homepage.js'
-import UserPage from './UserPage.js'
-import { useState } from 'react'
+import {RouterProvider, createBrowserRouter} from "react-router-dom"
+import Home from "./pages/Home"
+import Course from "./pages/Courses"
+import Root from "./components/Root"
 import './App.css'
 
+
+const router = createBrowserRouter([
+  {path:"/", element:<Root/>, 
+  children:[
+    {path:"/", element:<Home />},
+    {path:"/course", element:<Course />}
+  ]
+}
+  
+])
+
 function App() {
-  console.log("App component rendered");
   return (
-    <Switch>
-      <Route exact path="/" component={Homepage} />
-      <Route path="/user/:id" component={UserPage} />
-    </Switch>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
