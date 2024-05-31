@@ -4,7 +4,7 @@ import Navigation from "./Navigation";
 const Root = ()=> {
     return <>
         <Navigation/>
-        <Outlet/>
+        <Outlet/>  
         
     </>
 }
